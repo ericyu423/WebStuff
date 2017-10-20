@@ -9,16 +9,14 @@
 
 #Dynamic Port Binding
 
-const PORT = process.evn.PORT || 5000;
-app.listen(PORT);
-
-// work the same as swift nil ? ""
+* const PORT = process.evn.PORT || 5000;  // work the same as swift nil ? "default string"
+* app.listen(PORT);  
 
 #On localhost
 
-terminal type: node index.js
-terminal to stop: crtl-C
+* terminal type: node index.js
+* terminal to stop: crtl-C
 
 #Get versions of stuff
-node -v
-npm -v
+* node -v
+* npm -v
