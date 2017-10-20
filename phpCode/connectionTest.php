@@ -1,0 +1,84 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ericyu423
+ * Date: 10/20/17
+ * Time: 7:59 AM
+ */
+
+
+/*  this following code connects to the host
+    if cloud host it might look lik heroku username password
+*/
+
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpassword = "";
+$dbname = "myDB";
+
+$success = false;
+
+/* to change password and username
+ * xamppfiles->phpmyadmin->config.inc.php $cfg['Servers'][$i]['user'] = 'root';
+ * password is below it
+ */
+
+
+/* to change local host folder (host webpage current goes to htdocs folder)
+ * currently it goes to xamppfiles ->htdocs
+ *
+ *xamppfiles->apache2->conf->httpd.conf
+ */
+
+$isConnected = mysqli_connect($dbhost,$dbuser,$dbpassword);
+$selected = mysqli_select_db($isConnected,$dbname);
+
+if ($isConnected){
+    /* step1 connect to local host
+       step2 select "test" data base
+    */
+    echo "connected</br>";
+
+    if ($selected){
+        $success = true;
+        echo "Selected</br>";
+    }else {
+        $sucess = false;
+        echo "Selection Failed, let's create a datbase</br>";
+        //basically if our selected database doesn't exist
+        //we create one
+
+        //if statement unnecessary
+        //this was a code that is suppose to be someone else
+        // for test purpose it is put in here
+        if ($success == false) {
+
+            $sql = "CREATE DATABASE " . $dbname; //create Database
+            //connecdt to local host and execute sql statment
+            if (mysqli_query($isConnected, $sql)) {
+                echo 'Created successfully';
+            } else {
+                echo 'Creation Failed</br>';
+            }
+        }
+
+    }
+}else {
+    echo "Connection failed</br>";
+    $success = false;
+}
+
+/*
+ *
+ * connected
+ * Selection Failed, let's create a datbase
+ * Created successfully
+ *
+ *  reload - http://localhost/phpmyadmin/
+ *  under information_schema "myDB" is created
+ */
+
+
+
+
+?>
