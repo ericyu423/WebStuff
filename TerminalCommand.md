@@ -26,3 +26,20 @@
 
 
 
+
+# see file in terminal
+
+*cat package.json   // cat something.something
+
+
+# vi annoying editor 
+
+*i to edit
+*esc :q!  //quit
+
+
+
+
+
+
+
