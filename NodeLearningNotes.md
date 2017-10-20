@@ -1,11 +1,11 @@
 
 #Start Project
 
-* mkdir server   //or whatever name you want
+* mkdir server   /or whatever name you want
 * cd server    // or cd [drag the folder]
-* npm init     //Node Package Manager (install from https://nodejs.org/en/download/current/)
-              // this create json Package
-              // press enter to set everythign to default
+* npm init     /*   Node Package Manager (install from https://nodejs.org/en/download/current/)
+                    this create json Package
+                    press enter to set everythign to default */
 
 #Dynamic Port Binding
 
