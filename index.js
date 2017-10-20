@@ -13,7 +13,7 @@ const app = express();
 //res object  representing the outgoing response
 
 app.get('/', (req, res) => {
-  res.send({ hi: 'there' });
+  res.send({ hi: 'copernicus' });
   //outgoing object res sending something out
 });
 //
