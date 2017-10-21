@@ -1,0 +1,75 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ericyu423
+ * Date: 10/20/17
+ * Time: 7:59 AM
+ */
+
+
+/*  this following code connects to the host
+    if cloud host it might look lik heroku username password
+*/
+
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpassword = "";
+$dbname = "myDB";
+$dbtable = "myDBclients";
+
+$success = false;
+
+
+
+$isConnected = mysqli_connect($dbhost,$dbuser,$dbpassword);
+$selected = mysqli_select_db($isConnected,$dbname);
+
+if ($isConnected){
+
+    echo "connected</br>";
+
+    if ($selected){
+        $success = true;
+        echo "Selected</br>";
+    }else {
+        $sucess = false;
+        echo "Selection Failed</br>";
+        return;
+    }
+
+}else {
+    echo "Connection failed</br>";
+    $success = false;
+    return;
+}
+
+if ($success) {
+
+    //SELECT name, city FROM myDB.myDBclients
+    $sql = "SELECT name, city FROM ".$dbname.".".$dbtable;
+    $query = mysqli_query($isConnected, $sql);
+
+    echo $sql . "</br>";
+    //$i = 1;
+     //$row = {"name":"Bob","city":"London"}
+    while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
+    {
+        $name = $row["name"];
+        $city = $row["city"];
+        //echo $name . " " . $city . "</br>";
+
+        echo json_encode($row);
+        /*
+        {"name":"Bob","city":"London"}
+        {"name":"Henry","city":"New York"}
+        {"name":"Jessica","city":"Paris"}*/
+
+    }
+
+}
+
+//local host look at MyDB.client structure
+//name varchar(20) latin1_swdish_ci
+//city varchar(20) latin1_swdish_ci
+
+?>
