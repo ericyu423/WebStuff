@@ -52,7 +52,16 @@
 </p>
 
 
+#htmlentities prevent some code enjections
 
+        ea.  $fullname =htmlentities($_REQUEST["fullname"]);
+        php?fullname=A 'quote' is <b>bold</b>
+        
+        echo ($fullname) =>  A quote is <b>bold</b>
+        
+        ea.  $fullname =$_REQUEST["fullname"];
+        
+  A quote is <b>bold</b>
 
 
 
