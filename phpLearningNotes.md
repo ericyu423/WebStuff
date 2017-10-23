@@ -14,7 +14,18 @@
 *  execute SQL statements
 
       $mysql_statement = "CREATE DATABASE ". $dbname// CREATE DATABASE MyTwistter;
-  
+      
+      $mysql_statement = "CREATE TABLE " . $dbname . ".".$dbtablename;  //CREATE TABLE
+      $mysql_statement .= " (name VARCHAR(20), city VARCHAR(20)";
+      
+      $mysql_statement = "INSERT INTO ".$dbtablename . "
+                          (name, city) 
+                          VALUES 
+                          ('Bob',London'),
+                          ('Henry','New York')";
+      
+  
+      mysqli_query($x,$sql) // basically think of this as use the connected myqli info to execute $sql stament. 
 
 #Using phpStorm editor
 
