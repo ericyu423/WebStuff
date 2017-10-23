@@ -39,6 +39,25 @@
        }
        
 
+
+# GET/POST/REQUEST
+
+       $dbtable = $_GET["tableName"];
+       //phpFile.php?tableName=  whatever you want to pass in goes here
+
+
+
+<p align="center">
+  <img src="https://github.com/ericyu423/WebStuff/blob/master/image/POST.png" width="500"/>
+</p>
+
+
+
+
+
+
+
+
 #Using phpStorm editor
 
 after install XAMPP open folder path with phpStrom
