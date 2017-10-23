@@ -18,6 +18,8 @@
       $mysql_statement = "CREATE TABLE " . $dbname . ".".$dbtablename;  //CREATE TABLE
       $mysql_statement .= " (name VARCHAR(20), city VARCHAR(20)";
       
+      $mysql_statement = "SELECT name, city FROM".$dbname.".".$dbtablename;
+      
       $mysql_statement = "INSERT INTO ".$dbtablename . "
                           (name, city) 
                           VALUES 
@@ -25,7 +27,17 @@
                           ('Henry','New York')";
       
   
-      mysqli_query($x,$sql) // basically think of this as use the connected myqli info to execute $sql stament. 
+       $query = mysqli_query($x,$sql) // basically think of this as use the connected myqli info to execute $sql stament. 
+       
+       //put the query to an associate array
+       //so it keep going till nothing matches
+       //one row at a time
+       while($row = mysqli_fetch_array($query,MYSLI_AOOC)){
+            $name = $row["name"];
+            $city = $row["city"];
+       
+       }
+       
 
 #Using phpStorm editor
 
